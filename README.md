@@ -1,50 +1,56 @@
-# Welcome to your Expo app 👋
+Projet d'application : Hubbly
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+1. Resume du projet
 
-## Get started
+Hubbly est une application mobile sociale multilingue destinee a connecter les personnes autour
+d'evenements locaux crees par des particuliers ou des professionnels.
+Les utilisateurs creent un profil personnel ou professionnel, consultent les evenements autour d'eux,
+demandent a y participer, et interagissent avec des personnes partageant les memes centres
+d'interet.
+L'intelligence artificielle propose des evenements personnalises et permet aux professionnels de
+cibler leurs offres.
 
-1. Install dependencies
+2. Objectifs
 
-   ```bash
-   npm install
-   ```
+- Creer une app iOS et Android accessible au monde entier.
+- Mettre en avant les interets communs pour favoriser les rencontres humaines.
+- Offrir une plateforme utile aux professionnels pour promouvoir leurs offres.
 
-2. Start the app
+3. Fonctionnalites MVP
 
-   ```bash
-   npx expo start
-   ```
+- Creation de compte (particulier ou professionnel)
+- Saisie ou detection des centres d'interet
+- Carte des evenements geolocalises
+- Creation et demande de participation a un evenement
+- Suggestions intelligentes d'evenements
+- Profils utilisateurs & evenements
 
-In the output, you'll find options to open the app in a
+4. Stack technique (proposee)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Frontend : React Native (multi-plateforme iOS / Android)
+- Backend : Firebase (auth, base de donnees, stockage, notifications)
+Projet d'application : Hubbly
+- IA : OpenAI API pour les suggestions d'evenements personnalises
+- Carte : Google Maps SDK ou Mapbox
+- Multilingue : i18n (internationalisation) avec prise en charge de plusieurs langues
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+5. Nom et branding
 
-## Get a fresh project
+Nom choisi : Hubbly
+Un nom dynamique, simple a memoriser, qui evoque une "bulle sociale" de connexions autour
+d'interets partages.
+Logo et design a creer prochainement.
 
-When you're ready, run:
+6. Cibles
 
-```bash
-npm run reset-project
-```
+- Ciblage mondial (monde entier)
+- Multilingue (ex: anglais, francais, arabe, espagnol...)
+- Jeunes adultes, actifs, voyageurs, professionnels du loisir ou de la restauration
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+7. Prochaines etapes
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Creer un depot GitHub pour versionner le projet
+- Creer une maquette Figma (en cours)
+- Developper l'app MVP etape par etape en React Native avec Firebase
+- Ajouter progressivement les fonctionnalites IA
+- Tester l'app avec des amis ou utilisateurs locaux avant lancement officiel

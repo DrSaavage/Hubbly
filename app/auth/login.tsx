@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { useState } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/lib/firebase';
 import { useRouter } from 'expo-router';
 
 export default function LoginScreen() {
-  const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
-  const handleLogin = () => {
-    Alert.alert('Connexion', `Email: ${email}\nMot de passe: ${password}`);
-    // 🔜 on ajoutera Firebase ici
+  const handleLogin = async () => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      Alert.alert('Erreur', error.message);
+    }
   };
 
   return (
@@ -17,23 +23,20 @@ export default function LoginScreen() {
       <Text style={styles.title}>Se connecter</Text>
       <TextInput
         style={styles.input}
-        placeholder="Adresse email"
-        value={email}
-        onChangeText={setEmail}
+        placeholder="Email"
         autoCapitalize="none"
+        onChangeText={setEmail}
+        value={email}
       />
       <TextInput
         style={styles.input}
         placeholder="Mot de passe"
-        value={password}
-        onChangeText={setPassword}
         secureTextEntry
+        onChangeText={setPassword}
+        value={password}
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Se connecter</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => router.replace('/auth/signup')}>
-        <Text style={styles.link}>Pas encore de compte ? S’inscrire</Text>
       </TouchableOpacity>
     </View>
   );
@@ -42,37 +45,33 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 24,
+    backgroundColor: '#87CEEB',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    paddingHorizontal: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: 'bold',
-    marginBottom: 24,
+    color: 'white',
     textAlign: 'center',
+    marginBottom: 32,
   },
   input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor: 'white',
     borderRadius: 8,
-    padding: 12,
+    padding: 14,
     marginBottom: 16,
   },
   button: {
-    backgroundColor: '#87CEEB',
-    padding: 14,
+    backgroundColor: '#fff',
+    paddingVertical: 14,
     borderRadius: 8,
     alignItems: 'center',
-    marginBottom: 16,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  link: {
-    textAlign: 'center',
     color: '#87CEEB',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
+
