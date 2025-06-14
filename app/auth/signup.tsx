@@ -1,22 +1,39 @@
-import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
 
 export default function SignUpScreen() {
   const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Inscription</Text>
-      <TextInput placeholder="Nom" style={styles.input} placeholderTextColor="#999" />
-      <TextInput placeholder="Email" style={styles.input} placeholderTextColor="#999" />
-      <TextInput placeholder="Mot de passe" secureTextEntry style={styles.input} placeholderTextColor="#999" />
-      <TouchableOpacity style={styles.button} onPress={() => router.replace('/home')}>
-        <Text style={styles.buttonText}>Créer un compte</Text>
+      <Text style={styles.title}>Créer un compte</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#aaa"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Mot de passe"
+        placeholderTextColor="#aaa"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={() => console.log('S’inscrire')}>
+        <Text style={styles.buttonText}>S’inscrire</Text>
       </TouchableOpacity>
-      <Text style={styles.link} onPress={() => router.push('/auth/login')}>
-        Déjà un compte ? Connectez-vous
-      </Text>
+
+      <TouchableOpacity onPress={() => router.push('/auth/login')}>
+        <Text style={styles.link}>Déjà un compte ? Se connecter</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -30,27 +47,24 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   title: {
-    fontSize: 36,
+    fontSize: 32,
     fontWeight: 'bold',
     color: 'white',
     marginBottom: 40,
   },
   input: {
-    backgroundColor: '#fff',
     width: '100%',
-    paddingVertical: 14,
-    paddingHorizontal: 16,
+    backgroundColor: '#fff',
+    padding: 14,
     borderRadius: 8,
-    marginBottom: 12,
-    fontSize: 16,
+    marginBottom: 16,
   },
   button: {
     backgroundColor: '#fff',
     paddingVertical: 14,
+    paddingHorizontal: 32,
     borderRadius: 8,
-    width: '100%',
-    alignItems: 'center',
-    marginTop: 8,
+    marginBottom: 20,
   },
   buttonText: {
     color: '#87CEEB',
@@ -58,8 +72,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   link: {
-    marginTop: 16,
     color: 'white',
+    marginTop: 10,
     textDecorationLine: 'underline',
   },
 });

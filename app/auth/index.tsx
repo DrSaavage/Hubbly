@@ -1,4 +1,3 @@
-// app/auth/index.tsx
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 
@@ -29,7 +28,7 @@ export default function AuthScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#87CEEB',
+    backgroundColor: '#87CEEB', // bleu ciel
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
